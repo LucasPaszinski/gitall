@@ -8,7 +8,7 @@ defmodule Gitall.Git do
     end
   end
 
-  def sanitize_command(command) do
+  defp sanitize_command(command) do
     command
     |> String.split()
   end

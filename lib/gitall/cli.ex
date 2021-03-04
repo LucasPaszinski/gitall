@@ -1,18 +1,13 @@
 defmodule Gitall.CLI do
-  @moduledoc """
-  The Cli component of gitall
-  """
+  alias Gitall.PathFinder
+  alias Gitall.Git
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Gitall.hello()
-      :world
-
-  """
-  def main(args \\ []) do
+  def main([path, command] = args) do
     IO.inspect(args)
+
+    path
+    |> PathFinder.find_git_in_subdirs()
+    |> Enum.map(&Git.execute(&1, command))
+    |> IO.inspect()
   end
 end
