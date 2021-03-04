@@ -2,8 +2,9 @@ defmodule Gitall.PathFinder do
   def find_git_in_subdirs(path) when is_binary(path) do
     path
     |> File.ls!()
-    |> Enum.map(&is_subitem_a_folder(path, &1))
-    |> Enum.filter(&is_subdir_git?(&1))
+    |> Stream.map(&is_subitem_a_folder(path, &1))
+    |> Stream.filter(&is_subdir_git?(&1))
+    |> Enum.map(&elem(&1, 1))
   end
 
   defp is_subitem_a_folder(root_path, item) do
