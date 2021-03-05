@@ -1,13 +1,10 @@
 defmodule Gitall.CLI do
-  alias Gitall.PathFinder
-  alias Gitall.Git
+  alias Gitall.{PathFinder, Spawner, Printer}
 
-  def main([path, command] = args) do
-    IO.inspect(args)
-
+  def main([path, command]) do
     path
     |> PathFinder.find_git_in_subdirs()
-    |> Enum.map(&Git.execute(&1, command))
-    |> IO.inspect()
+    |> Spawner.perform(command)
+    |> Printer.print_messages()
   end
 end

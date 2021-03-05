@@ -15,8 +15,8 @@ defmodule Gitall.Git do
 
   defp execute_command(root_cmd, params, path) do
     case System.cmd(root_cmd, params, cd: path, stderr_to_stdout: true) do
-      {msg, 0} -> {:ok, msg}
-      {msg, _} -> {:error, msg}
+      {msg, 0} -> {:ok, msg, path}
+      {msg, _} -> {:error, msg, path}
     end
   end
 end
