@@ -1,23 +1,6 @@
 # Gitall
 
-**TODO: Add description**
-
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `gitall` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:gitall, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/gitall](https://hexdocs.pm/gitall).
+Gitall is a git cli that helps when there is a need to run the same git command in multiple git repositories
 
 ## ESCRIPT
 
@@ -27,3 +10,5 @@ To compile the executable `mix escript.build` a file called `gitall` will appear
 
 You can call this file by `./gitall` on the root folder
 You can also pass parameter to it.
+
+If you call `./gitall --h` you will get a help on how to use it.
