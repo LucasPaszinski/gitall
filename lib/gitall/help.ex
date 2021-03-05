@@ -11,13 +11,15 @@ defmodule Gitall.Help do
   end
 
   def help_text() do
-    "How to use gitall:
+    "
+How to use gitall:
 
     ./gitall :path_to_root_folder :git_command
 
-    Examples:
+Examples:
 
     ./gitall . \"git status\"
+
     ./gitall ../.. \"git pull --rebase\"
     " |> IO.puts()
   end
