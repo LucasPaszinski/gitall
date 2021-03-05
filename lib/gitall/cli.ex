@@ -1,6 +1,16 @@
 defmodule Gitall.CLI do
   alias Gitall.{PathFinder, Spawner, Printer, Help}
 
+  @doc """
+  The main function of the CLI.
+  This is the function that is called by the escript library.
+
+  ## Examples
+
+      iex> Gitall.main([])
+      :ok
+
+  """
   def main(args) do
     case Help.is_help?(args) do
       true -> Help.help_text()

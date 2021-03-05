@@ -1,5 +1,5 @@
 defmodule Gitall.Help do
-  @help_args ["--h", "-h", "help", "--help", "-help"]
+  @help_args ["--h", "-h", "--help", "-help"]
 
   def is_help?(args) do
     args
