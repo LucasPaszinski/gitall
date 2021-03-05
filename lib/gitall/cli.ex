@@ -1,10 +1,19 @@
 defmodule Gitall.CLI do
-  alias Gitall.{PathFinder, Spawner, Printer}
+  alias Gitall.{PathFinder, Spawner, Printer, Help}
 
-  def main([path, command]) do
+  def main(args) do
+    case Help.is_help?(args) do
+      true -> Help.help_text()
+      false -> do_it(args)
+    end
+  end
+
+  defp do_it([path, command]) do
     path
     |> PathFinder.find_git_in_subdirs()
     |> Spawner.perform(command)
     |> Printer.print_messages()
   end
+
+  defp do_it(_), do: Help.help_text()
 end
