@@ -15,5 +15,8 @@ defmodule Gitall.Printer do
     print_messages(tail, updated_msg)
   end
 
-  def print_messages([], combined_msg), do: IO.puts(combined_msg)
+  def print_messages([], combined_msg) do
+    IO.puts(combined_msg)
+    combined_msg
+  end
 end
