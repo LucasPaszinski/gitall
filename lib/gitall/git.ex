@@ -1,4 +1,7 @@
 defmodule Gitall.Git do
+  @doc """
+  Execute the git command on the path
+  """
   def execute(path, command)
       when is_binary(path) and is_binary(command) do
     with ["git" = git | params] <- sanitize_command(command) do

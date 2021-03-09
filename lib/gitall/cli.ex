@@ -21,7 +21,7 @@ defmodule Gitall.CLI do
   defp run([path, command]) do
     path
     |> PathFinder.find_git_in_subdirs()
-    |> Spawner.perform(command)
+    |> Spawner.spawn_git_await_results(command)
     |> Printer.print_messages()
   end
 

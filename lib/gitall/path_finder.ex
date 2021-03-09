@@ -1,4 +1,13 @@
 defmodule Gitall.PathFinder do
+  @doc """
+  The main function of the CLI.
+  This is the function that is called by the escript library.
+
+  ## Examples
+
+      iex> Gitall.PathFinder.find_git_in_subdirs("..")
+      ["../gitall"]
+  """
   def find_git_in_subdirs(path) when is_binary(path) do
     path
     |> File.ls!()
